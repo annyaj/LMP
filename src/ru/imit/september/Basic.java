@@ -48,7 +48,7 @@ public class Basic {
         b=in.nextDouble();
         c=in.nextDouble();
         if(a==0){
-            if(b==0)System.out.println("Incorrect paraeters");
+            if(b==0)System.out.println("Incorrect parameters");
             else{
                 System.out.println("There is one root :" + (-c)/b);
             }
@@ -67,9 +67,9 @@ public class Basic {
     public static void tabulation(double a,double b,double step){
         double res=0.0;
         int j=0;
-        if(step==0)System.out.println("Incorrect paraeters");
+        if(step==0)System.out.println("Incorrect parameters");
         if(a<b){
-            if(step<0)System.out.println("Incorrect paraeters");
+            if(step<0)System.out.println("Incorrect parameters");
             else
                 for(double i=a;i<b;i+=step){
                     j++;
@@ -80,7 +80,7 @@ public class Basic {
                 }
         }
         if(a>b){
-            if(step>0)System.out.println("Incorrect paraeters");
+            if(step>0)System.out.println("Incorrect parameters");
             else
                 for(double i=a;i<b;i+=step){
                     j++;

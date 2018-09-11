@@ -25,7 +25,7 @@ public class ArrayWork {
         }
         return quantity;
     }
-    public static int quantInclNumb(int array[],double a,double b){
+    public static int quantIncludingNumb(int array[],double a,double b){
         int quantity=0;
         for(int i=0;i<array.length;i++){
             if(a<=b){ if(array[i]>=a && array[i]<=b)quantity++;}
