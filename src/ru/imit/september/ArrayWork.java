@@ -13,19 +13,19 @@ public class ArrayWork {
         }
         return arr;
     }
-    public static int summOfElem(int array[]){
+    public static int sumOfElem(int array[]){
         int sum=0;
         for(int i=0;i<array.length;i++)sum+=array[i];
         return sum;
     }
-    public static int quantEvenNumb(int array[]){
+    public static int quantityEvenNumb(int array[]){
         int quantity=0;
         for(int i=0;i<array.length;i++){
             if(array[i]%2==0)quantity++;
         }
         return quantity;
     }
-    public static int quantIncludingNumb(int array[],double a,double b){
+    public static int quantityIncludingNumb(int array[],double a,double b){
         int quantity=0;
         for(int i=0;i<array.length;i++){
             if(a<=b){ if(array[i]>=a && array[i]<=b)quantity++;}
@@ -34,11 +34,11 @@ public class ArrayWork {
         return quantity;
     }
     public static boolean isPositive(int array[]){
-        boolean flag=true;
+        boolean positive=true;
         for(int i=0;i<array.length;i++){
-            if(array[i]<=0)flag=false;
+            if(array[i]<=0)positive=false;
         }
-        return flag;
+        return positive;
     }
     public static int[] reverseArray(int array[]){
         int arr2[]=new int[array.length];

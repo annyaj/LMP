@@ -2,25 +2,16 @@ package ru.imit.september;
 
 public class Main {
     public static void main(String []args){
-       /* Basic a=new Basic();
-        double answ = a.decompose(2,0.6);
-       System.out.println(answ);
-        ArrayWork a= new ArrayWork();
-        int arr[]= a.keyboardInput(5);
-       a.outputToConsole(arr);
-       int sum= a.quantInclNumb(arr,9,5);
-        boolean fl=a.isPositive(arr);
-       if(fl==true)System.out.print("Yes");
-       else System.out.print("No");
-
-       int arr2[]=a.reverseArray(arr);
-       a.outputToConsole(arr2);
-       */
-       Vector3D a= new Vector3D(4,5,3);
-       Vector3D b= new Vector3D(4,5,3);
-       if(a.isEqual(b)==true) System.out.print("Yes");
-       System.out.print(a.length());
-
-
+        Basic a=new Basic();
+        a.helloWorld();
+        a.doubleDigits();
+        a.intDigits();
+        a.rootSearch();
+        a.tabulation(1,6,0.5);
+        a.solutionSystemEquat(0,0,0,8,8,0);
+        System.out.println(a.decompose(2,0.6));
+        //ArrayWork b= new ArrayWork();
+        //int mass[]={2,5,4,6,0,-2};
+        //b.outputToConsole(b.keyboardInput(5));
     }
 }

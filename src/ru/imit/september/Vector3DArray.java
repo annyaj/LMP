@@ -14,14 +14,9 @@ public class Vector3DArray {
         array[index]=new Vector3D(a.getX(),a.getY(),a.getZ());
     }
     public int findVector(Vector3D a){
-        double x=a.getX();
-        double y=a.getY();
-        double z=a.getZ();
         int answ=-1;
         for(int i=0;i<array.length;i++){
-            if(x==array[i].getX() &&
-            y==array[i].getY()
-            && z== array[i].getZ())
+            if(a.isEqual(array[i]))
                 answ=i;
         }
         return answ;
@@ -43,5 +38,25 @@ public class Vector3DArray {
         }
         return max;
     }
+    public Vector3D linearCombination(double[] mass){
+        Vector3D comb=new Vector3D();
+        Vector3DProcessor a=new Vector3DProcessor();
+        if(mass.length!=array.length)return new Vector3D();
+        for(int i=0;i<mass.length;i++){
+            comb=a.sum(comb,new Vector3D(array[i].getX()*mass[i],
+                    array[i].getY()*mass[i],
+                    array[i].getZ()*mass[i]));
 
+        }
+        return comb;
+    }
+    public Point3D[] arrayPoints(Point3D p){
+        Point3D[] massPoints=new Point3D[array.length];
+        for(int i=0;i<array.length;i++){
+            massPoints[i]=new Point3D(p.getX()+array[i].getX(),
+                    p.getY()+array[i].getY(),
+                    p.getZ()+array[i].getZ());
+        }
+        return massPoints;
+    }
 }
