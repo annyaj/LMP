@@ -1,27 +1,25 @@
 package ru.imit.september;
 
 import java.util.Scanner;
+import java.util.Arrays;
+
 public class Basic {
     public static void helloWorld(){
         System.out.println("Hello,World");
     }
     public static void doubleDigits(){
-        double a,b,c;
+        double[] arr=new double[3];
         System.out.println("Input 3 double digits");
         Scanner in=new Scanner(System.in);
-        a=in.nextDouble();
-        b=in.nextDouble();
-        c=in.nextDouble();
-        System.out.println("multiply =" + a*b*c);
-        System.out.println("average =" + (a+b+c)/3.0);
-        double middle=0;
-        double min=Math.min(Math.min(a,b),c);
-        double max=Math.max(Math.max(a,b),c);
-        if(a!=min && a!=max)middle=a;
-        if(b!=min && b!=max)middle=b;
-        if(c!=min && c!=max)middle=c;
-        System.out.printf("(%6.1f, %6.1f,%6.1f)",min,middle,max);
-        System.out.println();
+        for(int i=0;i<arr.length;i++){
+            arr[i]=in.nextDouble();
+        }
+        System.out.println("multiply =" + arr[0]*arr[1]*arr[2]);
+        System.out.println("average ="+ (arr[0]+arr[1]+arr[2])/3.0);
+        Arrays.sort(arr);
+        for(int i=0;i<arr.length;i++){
+            System.out.print(arr[i]+ " ");
+        }
 
     }
     public static void intDigits(){
@@ -76,9 +74,9 @@ public class Basic {
                 for(double i=a;i<b;i+=step){
                     j++;
                     res=Math.sin(i);
-                    System.out.printf("%12.6f",res);
-                    System.out.print(" ");
-                    if(j==10){j=0;System.out.println();}
+                    System.out.printf("%6.1f",res);
+                    //System.out.print(" ");
+                    //if(j==10){j=0;System.out.println();}
                 }
         }
         if(a>b){
@@ -87,9 +85,8 @@ public class Basic {
                 for(double i=a;i<b;i+=step){
                     j++;
                     res=Math.sin(i);
-                    System.out.printf("%12.6f",res);
-                    System.out.print(" ");
-                    if(j==10){j=0;System.out.println();}
+                    System.out.printf("%6.3f",res);
+                    //if(j==10){j=0;System.out.println();}
                 }
         }
     }
@@ -99,25 +96,25 @@ public class Basic {
         double deltaY = c2 * a1 - c1 * a2;
         if(delta==0){
             if(c1==0 && c2==0){
-                if(a1==0 && a2==0 && b1==0 && b2==0)System.out.println("Infinite number of roots");
-                if(a1==0 && a2==0 && b1!=0 && b2!=0)System.out.println("y is any number, x=0 ");
-                if(a1!=0 && a2!=0 && b1==0 && b2==0)System.out.println("x is any number, y=0 ");
+                if(a1==0 && a2==0 && b1==0 && b2==0)System.out.print("Infinite number of roots");
+                if(a1==0 && a2==0 && b1!=0 && b2!=0)System.out.print("y is any number, x=0 ");
+                if(a1!=0 && a2!=0 && b1==0 && b2==0)System.out.print("x is any number, y=0 ");
                 if((a1==0 && a2!=0 && b1==0 && b2!=0)|| (a1!=0 && a2==0 && b1!=0 && b2==0))
-                    System.out.println(" x=0 and y=0");
+                    System.out.print("x=0 and y=0");
             }
-            else if((a1==0 && b1==0 && c1==0)||(a2==0 & b2==0 & c2==0))System.out.println("No solution");
+            else if((a1==0 && b1==0 && c1==0)||(a2==0 & b2==0 & c2==0))System.out.print("No solution");
             else{
-                if(deltaX!=0 && deltaY!=0)System.out.println("No solutions ");
+                if(deltaX!=0 && deltaY!=0)System.out.print("No solutions ");
                 else if(deltaX==0 && deltaY==0){
                     if(((a1 == 0) && (b1 == 0) && (c1 != 0)) || ((a2 == 0) && (b2 == 0) && (c2 != 0)))
-                        System.out.println("No solutions ");
+                        System.out.print("No solutions ");
                     if((a1 == 0 && b1 != 0 && c1 != 0) || (a2 == 0 && b2 != 0 && c2 != 0)){
-                        if(b1==0)System.out.println("x is any number, y equal " + c2/b2);
-                        else System.out.println("x is any number, y equal " + c1/b1);
+                        if(b1==0)System.out.print("x is any number, y equal " + c2/b2);
+                        else System.out.print("x is any number, y equal " + c1/b1);
                     }
                     if((a1 != 0 && b1 == 0 && c1 != 0) || (a2 != 0 && b2 == 0 && c2 != 0)){
-                        if(a1==0)System.out.println("y is any number, x equal " + c2/a2);
-                        else System.out.println("y is any number, x equal " + c1/a1);
+                        if(a1==0)System.out.print("y is any number, x equal " + c2/a2);
+                        else System.out.print("y is any number, x equal " + c1/a1);
                     }
                 }
             }

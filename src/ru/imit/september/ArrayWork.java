@@ -47,4 +47,10 @@ public class ArrayWork {
         }
         return arr2;
     }
+    public static int[] shift(int array[]){
+        int copy[]=new int[array.length];
+        copy[0]=array[array.length-1];
+        System.arraycopy(array,0,copy,1,array.length-1);
+        return copy;
+    }
 }

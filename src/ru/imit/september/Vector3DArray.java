@@ -2,6 +2,12 @@ package ru.imit.september;
 
 public class Vector3DArray {
     Vector3D[] array;
+    public class UnequalLengthsOfArrays extends Throwable{
+        public UnequalLengthsOfArrays(){}
+        public UnequalLengthsOfArrays(String message){
+            super(message);
+        }
+    }
     public Vector3DArray(int length){
         array=new Vector3D[length];
         for(int i=0;i<length;i++)
@@ -22,10 +28,9 @@ public class Vector3DArray {
         return answ;
     }
     public Vector3D sumAllVectors(){
-        Vector3DProcessor a=new Vector3DProcessor();
         Vector3D sum=array[0];
         for(int i=1;i<array.length;i++){
-            sum=a.sum(sum,array[i]);
+            sum=Vector3DProcessor.sum(sum,array[i]);
         }
         return sum;
     }
@@ -38,12 +43,11 @@ public class Vector3DArray {
         }
         return max;
     }
-    public Vector3D linearCombination(double[] mass){
+    public Vector3D linearCombination(double[] mass)throws UnequalLengthsOfArrays{
+        if(mass.length!=array.length)throw new UnequalLengthsOfArrays();
         Vector3D comb=new Vector3D();
-        Vector3DProcessor a=new Vector3DProcessor();
-        if(mass.length!=array.length)return new Vector3D();
         for(int i=0;i<mass.length;i++){
-            comb=a.sum(comb,new Vector3D(array[i].getX()*mass[i],
+            comb=Vector3DProcessor.sum(comb,new Vector3D(array[i].getX()*mass[i],
                     array[i].getY()*mass[i],
                     array[i].getZ()*mass[i]));
 
