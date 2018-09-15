@@ -1,4 +1,4 @@
-package ru.imit.september;
+package ru.imit.september.ru.imit.september.simpleclass;
 
 public class Vector3DArray {
     Vector3D[] array;
@@ -22,15 +22,17 @@ public class Vector3DArray {
     public int findVector(Vector3D a){
         int answ=-1;
         for(int i=0;i<array.length;i++){
-            if(a.isEqual(array[i]))
-                answ=i;
+            if(a.isEqualVectors(array[i])) {
+                answ = i;
+                break;
+            }
         }
         return answ;
     }
     public Vector3D sumAllVectors(){
         Vector3D sum=array[0];
         for(int i=1;i<array.length;i++){
-            sum=Vector3DProcessor.sum(sum,array[i]);
+            sum= Vector3DProcessor.sum(sum,array[i]);
         }
         return sum;
     }

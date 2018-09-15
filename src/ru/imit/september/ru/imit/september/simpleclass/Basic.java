@@ -1,36 +1,36 @@
-package ru.imit.september;
+package ru.imit.september.ru.imit.september.simpleclass;
 
 import java.util.Scanner;
 import java.util.Arrays;
 
 public class Basic {
     public static void helloWorld(){
-        System.out.println("Hello,World");
+        System.out.print("Hello,World");
     }
-    public static void doubleDigits(){
+    public static void workWithDoubleDigits(){
         double[] arr=new double[3];
         System.out.println("Input 3 double digits");
         Scanner in=new Scanner(System.in);
         for(int i=0;i<arr.length;i++){
             arr[i]=in.nextDouble();
         }
-        System.out.println("multiply =" + arr[0]*arr[1]*arr[2]);
-        System.out.println("average ="+ (arr[0]+arr[1]+arr[2])/3.0);
+        System.out.println("product =" + arr[0]*arr[1]*arr[2]);
+        System.out.println("average sum ="+ (arr[0]+arr[1]+arr[2])/3.0);
         Arrays.sort(arr);
         for(int i=0;i<arr.length;i++){
             System.out.print(arr[i]+ " ");
         }
 
     }
-    public static void intDigits(){
+    public static void workWithIntDigits(){
         int a,b,c;
         System.out.println("Input 3 int digits");
         Scanner in=new Scanner(System.in);
         a=in.nextInt();
         b=in.nextInt();
         c=in.nextInt();
-        System.out.println("multiply =" + a*b*c);
-        System.out.println("average ="+Math.round((a+b+c)/3.0));
+        System.out.println("product =" + a*b*c);
+        System.out.println("average sum ="+Math.round((a+b+c)/3.0));
         int middle=0;
         int min=Math.min(Math.min(a,b),c);
         int max=Math.max(Math.max(a,b),c);

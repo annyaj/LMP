@@ -1,4 +1,4 @@
-package ru.imit.september;
+package ru.imit.september.ru.imit.september.simpleclass;
 import java.util.Scanner;
 public class ArrayWork {
     public static void outputToConsole(int array[]){
@@ -8,7 +8,7 @@ public class ArrayWork {
         int arr[]=new int[length];
         Scanner inp=new Scanner(System.in);
         for(int i=0;i<length;i++){
-            System.out.print("Input integer "+ i);
+            System.out.print("Input number ("+ i + ")");
             arr[i]=inp.nextInt();
         }
         return arr;
@@ -47,10 +47,12 @@ public class ArrayWork {
         }
         return arr2;
     }
-    public static int[] shift(int array[]){
-        int copy[]=new int[array.length];
-        copy[0]=array[array.length-1];
-        System.arraycopy(array,0,copy,1,array.length-1);
-        return copy;
+    public static int[] getTotals(int[] arr){
+        int[] totals=new int[arr.length];
+        totals[0]=arr[0];
+        for(int i=1;i<arr.length;i++){
+            totals[i]=totals[i-1]+arr[i];
+        }
+        return totals;
     }
 }

@@ -1,12 +1,18 @@
-package ru.imit.september;
+package ru.imit.september.ru.imit.september.tests;
 
 import org.junit.Test;
+import ru.imit.september.ru.imit.september.simpleclass.Basic;
 
 import static org.junit.Assert.*;
 
 public class BasicTest extends OutputTest {
 
 
+    @Test
+    public void helloWorld(){
+        Basic.helloWorld();
+        assertEquals("Hello,World",out.toString());
+    }
     //@Test
     public void rootSearch() {
     }

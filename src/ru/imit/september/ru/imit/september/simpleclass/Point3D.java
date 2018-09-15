@@ -1,4 +1,4 @@
-package ru.imit.september;
+package ru.imit.september.ru.imit.september.simpleclass;
 
 public class Point3D {
     private double x,y,z;

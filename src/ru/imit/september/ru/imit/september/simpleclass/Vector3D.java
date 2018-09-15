@@ -1,4 +1,4 @@
-package ru.imit.september;
+package ru.imit.september.ru.imit.september.simpleclass;
 
 public class Vector3D {
     private double x,y,z;
@@ -12,7 +12,7 @@ public class Vector3D {
         this.y=y;
         this.z=z;
     }
-    public Vector3D(Point3D a,Point3D b){
+    public Vector3D(Point3D a, Point3D b){
         x=a.getX()-b.getX();
         y=a.getY()-b.getY();
         z=a.getZ()-b.getZ();
@@ -20,7 +20,7 @@ public class Vector3D {
     public double length(){
         return Math.sqrt(x*x+y*y+z*z);
     }
-    public boolean isEqual(Vector3D a){
+    public boolean isEqualVectors(Vector3D a){
         return (x==a.getX() && y==a.getY() && z==a.getZ());
     }
 

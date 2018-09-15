@@ -1,18 +1,18 @@
-package ru.imit.september;
+package ru.imit.september.ru.imit.september.tests;
 
-import org.junit.Before;
-import org.junit.After;
 import org.junit.Test;
+import ru.imit.september.ru.imit.september.simpleclass.ArrayWork;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 
 public class ArrayWorkTest extends OutputTest {
 
     int[] array={1,4,6,7,5,4};
+    int[] revarr={4,5,7,6,4,1};
+    int[] totals={1,5,11,18,23,27};
     @Test
     public void outputToConsole(){
         String exp="146754";
@@ -45,8 +45,11 @@ public class ArrayWorkTest extends OutputTest {
 
     @Test
     public void reverseArray() {
-        ArrayWork.outputToConsole(ArrayWork.reverseArray(array));
-        assertEquals("4 5 7 6 4 1 ",out.toString());
+        assertArrayEquals(revarr,ArrayWork.reverseArray(array));
 
+    }
+    @Test
+    public void getTotals(){
+        assertArrayEquals(totals,ArrayWork.getTotals(array));
     }
 }

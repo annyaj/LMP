@@ -1,4 +1,4 @@
-package ru.imit.september;
+package ru.imit.september.ru.imit.september.tests;
 
 import org.junit.After;
 import org.junit.Before;
