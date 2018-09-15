@@ -1,4 +1,4 @@
-package ru.imit.september.ru.imit.september.simpleclass;
+package ru.imit.september.simpleclass;
 import java.util.Scanner;
 public class ArrayWork {
     public static void outputToConsole(int array[]){

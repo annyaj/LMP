@@ -1,6 +1,4 @@
-package ru.imit.september.ru.imit.september.simpleclass;
-
-import ru.imit.september.ru.imit.september.simpleclass.Vector3D;
+package ru.imit.september.simpleclass;
 
 public class Vector3DProcessor {
     public static Vector3D sum(Vector3D a, Vector3D b){

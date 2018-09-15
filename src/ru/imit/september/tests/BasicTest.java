@@ -1,7 +1,7 @@
-package ru.imit.september.ru.imit.september.tests;
+package ru.imit.september.tests;
 
 import org.junit.Test;
-import ru.imit.september.ru.imit.september.simpleclass.Basic;
+import ru.imit.september.simpleclass.Basic;
 
 import static org.junit.Assert.*;
 

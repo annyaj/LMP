@@ -1,8 +1,8 @@
-package ru.imit.september.ru.imit.september.tests;
+package ru.imit.september.tests;
 
 import org.junit.Test;
-import ru.imit.september.ru.imit.september.simpleclass.Vector3D;
-import ru.imit.september.ru.imit.september.simpleclass.Vector3DProcessor;
+import ru.imit.september.simpleclass.Vector3D;
+import ru.imit.september.simpleclass.Vector3DProcessor;
 
 import static org.junit.Assert.*;
 

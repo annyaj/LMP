@@ -1,4 +1,4 @@
-package ru.imit.september.ru.imit.september.simpleclass;
+package ru.imit.september.simpleclass;
 
 public class Vector3D {
     private double x,y,z;
