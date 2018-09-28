@@ -12,14 +12,6 @@ public class ArrayWorkTest extends OutputTest {
 
     int[] array={1,4,6,7,5,4};
     int[] revarr={4,5,7,6,4,1};
-    int[] totals={1,5,11,18,23,27};
-    @Test
-    public void outputToConsole(){
-        String exp="146754";
-        ArrayWork.outputToConsole(array);
-        assertEquals("1 4 6 7 5 4 ",out.toString());
-    }
-
     @Test
     public void sumOfElem() {
        int sum=ArrayWork.sumOfElem(array);
@@ -47,9 +39,5 @@ public class ArrayWorkTest extends OutputTest {
     public void reverseArray() {
         assertArrayEquals(revarr,ArrayWork.reverseArray(array));
 
-    }
-    @Test
-    public void getTotals(){
-        assertArrayEquals(totals,ArrayWork.getTotals(array));
     }
 }

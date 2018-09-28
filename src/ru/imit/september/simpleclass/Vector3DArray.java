@@ -1,13 +1,8 @@
 package ru.imit.september.simpleclass;
 
 public class Vector3DArray {
-    Vector3D[] array;
-    public class UnequalLengthsOfArrays extends Throwable{
-        public UnequalLengthsOfArrays(){}
-        public UnequalLengthsOfArrays(String message){
-            super(message);
-        }
-    }
+    private Vector3D[] array;
+
     public Vector3DArray(int length){
         array=new Vector3D[length];
         for(int i=0;i<length;i++)
@@ -20,7 +15,7 @@ public class Vector3DArray {
         array[index]=new Vector3D(a.getX(),a.getY(),a.getZ());
     }
     public int findVector(Vector3D a){
-        int answ=-1;
+        int answ = -1;
         for(int i=0;i<array.length;i++){
             if(a.isEqualVectors(array[i])) {
                 answ = i;
@@ -45,8 +40,8 @@ public class Vector3DArray {
         }
         return max;
     }
-    public Vector3D linearCombination(double[] mass)throws UnequalLengthsOfArrays{
-        if(mass.length!=array.length)throw new UnequalLengthsOfArrays();
+    public Vector3D linearCombination(double[] mass){
+        if(mass.length!=array.length)return new Vector3D();
         Vector3D comb=new Vector3D();
         for(int i=0;i<mass.length;i++){
             comb=Vector3DProcessor.sum(comb,new Vector3D(array[i].getX()*mass[i],

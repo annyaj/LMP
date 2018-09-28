@@ -4,6 +4,12 @@ import java.util.Scanner;
 import java.util.Arrays;
 
 public class Basic {
+    public class Solution extends Throwable{
+        public Solution(){}
+        public Solution(String message){
+            super(message);
+        }
+    }
     public static void helloWorld(){
         System.out.print("Hello,World");
     }
@@ -23,112 +29,127 @@ public class Basic {
 
     }
     public static void workWithIntDigits(){
-        int a,b,c;
-        System.out.println("Input 3 int digits");
+        int[] arr=new int[3];
+        System.out.println("Input 3 integer digits");
         Scanner in=new Scanner(System.in);
-        a=in.nextInt();
-        b=in.nextInt();
-        c=in.nextInt();
-        System.out.println("product =" + a*b*c);
-        System.out.println("average sum ="+Math.round((a+b+c)/3.0));
-        int middle=0;
-        int min=Math.min(Math.min(a,b),c);
-        int max=Math.max(Math.max(a,b),c);
-        if(a!=min && a!=max)middle=a;
-        if(b!=min && b!=max)middle=b;
-        if(c!=min && c!=max)middle=c;
-        System.out.printf("(%2d, %2d,%2d)",min,middle,max);
-        System.out.println();
+        for(int i=0;i<arr.length;i++){
+            arr[i]=in.nextInt();
+        }
+        System.out.println("product =" + arr[0]*arr[1]*arr[2]);
+        System.out.println("average sum ="+Math.round((arr[0]+arr[1]+arr[2])/3.0));
+        Arrays.sort(arr);
+        for(int i=0;i<arr.length;i++){
+            System.out.print(arr[i]+ " ");
+        }
     }
-    public static void rootSearch(){
-        double a,b,c;
-        System.out.println("Input 3 double digits");
-        Scanner in=new Scanner(System.in);
-        a=in.nextDouble();
-        b=in.nextDouble();
-        c=in.nextDouble();
-        if(a==0){
-            if(b==0)System.out.println("No solution");
+    public static double[] rootSearch(double a,double b,double c){
+        double[] rootArray = null;
+        if (a == 0){
+            if(b == 0) {
+                if (c == 0)
+                {
+                    return null;
+                }
+                else return new double[0];
+            }
             else{
-                System.out.println("There is one root :" + (-c)/b);
+                rootArray = new double [1];
+                rootArray[0] = (-c) / b ;
             }
         }
         else{
             double disc=b*b - 4*a*c;
-            if(disc==0)System.out.println("There is one root :" + (-b)/2*a);
-            if(disc>0) {
-                System.out.println("There are two roots :");
-                System.out.println("X1 = " + ((-b)+Math.sqrt(disc))/2*a);
-                System.out.println("X2 = " + ((-b)-Math.sqrt(disc))/2*a);
+            if(disc == 0) {
+                rootArray = new double[1];
+                rootArray[0] = (-b)/(2*a);
             }
-            else System.out.println("All roots are complex digits");
+            else if(disc > 0) {
+                rootArray = new double[2];
+                rootArray[0] = ((-b)+Math.sqrt(disc))/(2*a);
+                rootArray[1] = ((-b)-Math.sqrt(disc))/(2*a);
+            }
+            else { return new double[0];}
         }
+        return rootArray;
     }
     public static void tabulation(double a,double b,double step){
-        double res=0;
-        int j=0;
+        double res;
         if(step==0)System.out.println("Incorrect parameters");
         if(a<b){
             if(step<0)System.out.println("Incorrect parameters");
             else
                 for(double i=a;i<b;i+=step){
-                    j++;
                     res=Math.sin(i);
                     System.out.printf("%6.1f",res);
-                    //System.out.print(" ");
-                    //if(j==10){j=0;System.out.println();}
+
                 }
         }
         if(a>b){
             if(step>0)System.out.println("Incorrect parameters");
             else
                 for(double i=a;i<b;i+=step){
-                    j++;
                     res=Math.sin(i);
                     System.out.printf("%6.3f",res);
-                    //if(j==10){j=0;System.out.println();}
                 }
         }
     }
-    public static void solutionSystemEquat(double a1, double b1, double c1,double a2, double b2, double c2){
+    public static double[] solutionSystemEquations(double a1, double b1, double c1,double a2, double b2, double c2){
         double delta = a1 * b2 - a2 * b1;
         double deltaX = c1 * b2 - c2 * b1;
         double deltaY = c2 * a1 - c1 * a2;
+        double[] rootArray = null;
         if(delta==0){
             if(c1==0 && c2==0){
-                if(a1==0 && a2==0 && b1==0 && b2==0)System.out.print("Infinite number of roots");
-                if(a1==0 && a2==0 && b1!=0 && b2!=0)System.out.print("y is any number, x=0 ");
-                if(a1!=0 && a2!=0 && b1==0 && b2==0)System.out.print("x is any number, y=0 ");
-                if((a1==0 && a2!=0 && b1==0 && b2!=0)|| (a1!=0 && a2==0 && b1!=0 && b2==0))
-                    System.out.print("x=0 and y=0");
+                if(a1==0 && a2==0 && b1==0 && b2==0)return null;
+                else if(a1==0 && a2==0 && b1!=0 && b2!=0 || a1!=0 && a2!=0 && b1==0 && b2==0){
+                    rootArray = new double[1];
+                    rootArray[0] = 0;
+                }
+                else if((a1==0 && a2!=0 && b1==0 && b2!=0)|| (a1!=0 && a2==0 && b1!=0 && b2==0)){
+                    rootArray = new double[2];
+                    rootArray[0] = 0;
+                    rootArray[1] = 0;
+                }
             }
-            else if((a1==0 && b1==0 && c1==0)||(a2==0 & b2==0 & c2==0))System.out.print("No solution");
+            else if((a1==0 && b1==0 && c1==0)||(a2==0 & b2==0 & c2==0))return null;
             else{
-                if(deltaX!=0 && deltaY!=0)System.out.print("No solutions ");
+                if(deltaX!=0 && deltaY!=0){return new double[0];}
                 else if(deltaX==0 && deltaY==0){
-                    if(((a1 == 0) && (b1 == 0) && (c1 != 0)) || ((a2 == 0) && (b2 == 0) && (c2 != 0)))
-                        System.out.print("No solutions ");
-                    if((a1 == 0 && b1 != 0 && c1 != 0) || (a2 == 0 && b2 != 0 && c2 != 0)){
-                        if(b1==0)System.out.print("x is any number, y equal " + c2/b2);
-                        else System.out.print("x is any number, y equal " + c1/b1);
+                    if(((a1 == 0) && (b1 == 0) && (c1 != 0)) || ((a2 == 0) && (b2 == 0) && (c2 != 0))) {
+                        return new double[0];
                     }
-                    if((a1 != 0 && b1 == 0 && c1 != 0) || (a2 != 0 && b2 == 0 && c2 != 0)){
-                        if(a1==0)System.out.print("y is any number, x equal " + c2/a2);
-                        else System.out.print("y is any number, x equal " + c1/a1);
+                    else if((a1 == 0 && b1 != 0 && c1 != 0) || (a2 == 0 && b2 != 0 && c2 != 0)){
+                        if(b1==0){
+                            rootArray = new double[1];
+                            rootArray[0] = c2/b2;
+                        }
+                        else {
+                            rootArray = new double[1];
+                            rootArray[0] = c1/b1;
+                        }
+                    }
+                    else if((a1 != 0 && b1 == 0 && c1 != 0) || (a2 != 0 && b2 == 0 && c2 != 0)){
+                        if(a1==0){
+                            rootArray = new double[1];
+                            rootArray[0] = c2/b2;
+                        }
+                        else {
+                            rootArray = new double[1];
+                            rootArray[0] = c1/b1;
+                        }
                     }
                 }
             }
 
         }
         else{
-            System.out.print("The first root (x) is :" );
-            System.out.printf("%6.1f", (deltaX/delta));
-            System.out.println();
-            System.out.print("The second root(y) is :");
-            System.out.printf("%6.1f", (deltaY/delta));
+            rootArray = new double[2];
+            rootArray[0] = deltaX/delta;
+            rootArray[1]=deltaY/delta;
         }
+        return rootArray;
     }
-    public static double decompose(double x,double precision){
+    public static double decomposeExp(double x,double precision){
         int num=1;
         double next=1,sum=1;
         while(Math.abs(next)>= precision) {
