@@ -2,8 +2,9 @@ package ru.imit.october;
 
 
 public class StringProcessor {
-    public static String copyStr(String s, int N){
-        //if (N < 0);Exeption!!!!
+
+    public static String copyStr(String s, int N)throws IllegalArgumentException{
+        if (N < 0)throw new IllegalArgumentException("Argument under zero");
         String copy = "" ;
         for(int i = 1; i <= N; i++)
                 copy += s;
@@ -68,6 +69,27 @@ public class StringProcessor {
             }
         }
         str = String.join(" ",array);
+        return str;
+    }
+
+    public static String exchangeNums(String str){
+        int count = StringProcessor.quantEntrancies(str,"0x");
+        double decNum = 0;
+        int index = -2;
+        while (count != 0){
+            int countPow = 7;
+            index = str.indexOf("0x", index + 2);
+           while (countPow > -1 && Character.isDigit(str.charAt(index + 9 - countPow))){
+               decNum += (str.charAt(index + 9 - countPow) - '0')* Math.pow(16,countPow);
+               countPow--;
+           }
+           if(countPow == -1) {
+               String part = str.substring(index, index + 10);
+               str = str.replace(part, Integer.toString((int) decNum));
+               decNum = 0;
+           }
+            count--;
+        }
         return str;
     }
 
